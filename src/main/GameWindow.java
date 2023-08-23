@@ -12,7 +12,7 @@ public class GameWindow extends JFrame {
 		
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jframe.add(gamePanel);
-		jframe.setLocationRelativeTo(null);
+		jframe.setLocation(100,100);
 		jframe.setResizable(false);
 		jframe.pack();
 		jframe.setVisible(true);
@@ -30,5 +30,6 @@ public class GameWindow extends JFrame {
 				
 			}
 		});
+		gamePanel.getRun().addList(gamePanel.getRun().getC(), gamePanel.getRun().getB(), gamePanel.getRun().getA(), gamePanel.getRun().getG());
 	}
 }

@@ -32,7 +32,7 @@ public class Game implements Runnable {
 
 	private void initClasses() {
 		levelManager = new LevelManager(this);
-		player = new Player(70, 70,(int) (64*0.9),(int) (66*0.9));
+		player = new Player(TILES_SIZE, TILES_SIZE,(int) (64*0.9),(int) (66*0.9));
 		player.loadLvlData(levelManager.getCurrentLevel().getLevelData());
 	}
 
@@ -40,6 +40,7 @@ public class Game implements Runnable {
 		gameThread = new Thread(this);
 		gameThread.start();
 	}
+	
 	
 	public void update() {
 		levelManager.update();
@@ -80,6 +81,7 @@ public class Game implements Runnable {
 			
 			if(detaU >= 1) {
 				update();
+				gamePanel.getRun().draw();
 				updates++;
 				detaU--;
 			}
