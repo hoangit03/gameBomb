@@ -14,7 +14,7 @@ public class Run {
 	private boolean check = false;
 	private Point start, end;
 	private Point x = new Point(1, 1);
-	Point g = new Point(16, 5);
+//	Point g = new Point(16, 5);
 	private int[][] a;
 
 	public ListPoint getB() {
@@ -41,13 +41,13 @@ public class Run {
 		this.x = x;
 	}
 
-	public Point getG() {
-		return g;
-	}
-
-	public void setG(Point g) {
-		this.g = g;
-	}
+//	public Point getG() {
+//		return g;
+//	}
+//
+//	public void setG(Point g) {
+//		this.g = g;
+//	}
 
 	public int[][] getA() {
 		return a;
@@ -82,16 +82,11 @@ public class Run {
 	}
 
 	public void updatePos() {
-//		int n = 0;
-//		int sleep = 5;
-//		1 1.0001 1.0002 ... 2
+
 		while (!check) {
-//			System.out.println(Math.round(start.getX()*100.0)/100.0);
 			check = Math.round(start.getX() * 10.0) / 10.0 == Math.round(end.getX() * 10.0) / 10.0
 					&& Math.round(start.getY() * 10.0) / 10.0 == Math.round(end.getY() * 10.0) / 10.0;
 			if (start.getX() < end.getX()) {
-//				a.setX(a.getX() + SPEEP);
-//				set x cua start
 				start.setX(start.getX() + SPEEP);
 				player.setRight(true);
 			}
@@ -112,7 +107,7 @@ public class Run {
 			player.update();
 			player.resetDirBooleans();
 			try {
-				Thread.sleep(5);
+				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -131,6 +126,7 @@ public class Run {
 	}
 
 	public void addList(ListPoint c, ListPoint b, int[][] a, Point g) {
+		System.out.println(g);
 		while (b.getSize() > 0) {
 			Point x = b.getFirst();
 			c.addPointLast(x);

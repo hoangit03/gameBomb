@@ -22,7 +22,6 @@ public class Player extends Entity {
 		super(x, y, scaleX, scaleY);
 		loadAnimation();
 		initHitbox(x, y, (float) (36 * 0.9), (float) (50 * 0.9));
-
 	}
 
 	public void update() {

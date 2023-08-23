@@ -5,6 +5,8 @@ import java.awt.event.WindowFocusListener;
 
 import javax.swing.JFrame;
 
+import ai.Point;
+
 public class GameWindow extends JFrame {
 	private JFrame jframe;
 	public GameWindow(GamePanel gamePanel) {
@@ -30,6 +32,6 @@ public class GameWindow extends JFrame {
 				
 			}
 		});
-		gamePanel.getRun().addList(gamePanel.getRun().getC(), gamePanel.getRun().getB(), gamePanel.getRun().getA(), gamePanel.getRun().getG());
+		gamePanel.getRun().addList(gamePanel.getRun().getC(), gamePanel.getRun().getB(), gamePanel.getRun().getA(), new Point(gamePanel.getGame().getBomb().getX(),gamePanel.getGame().getBomb().getY() ));
 	}
 }

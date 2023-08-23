@@ -2,6 +2,7 @@ package main;
 
 import java.awt.Graphics;
 
+import entities.Bomb;
 import entities.Player;
 import levels.LevelManager;
 
@@ -13,6 +14,7 @@ public class Game implements Runnable {
 	private final int UPS_SET = 200;
 	private Player player;
 	private LevelManager levelManager;
+	private Bomb bomb;
 	
 	public final static int TILES_DEFAULT_SIZE = 42;
 	public final static float SACLE = 1.5f;
@@ -34,6 +36,7 @@ public class Game implements Runnable {
 		levelManager = new LevelManager(this);
 		player = new Player(TILES_SIZE, TILES_SIZE,(int) (64*0.9),(int) (66*0.9));
 		player.loadLvlData(levelManager.getCurrentLevel().getLevelData());
+		bomb = new Bomb(13, 7);
 	}
 
 	private void startGameLoop() {
@@ -51,6 +54,7 @@ public class Game implements Runnable {
 		levelManager.drawBackGround(g);
 		levelManager.draw(g);
 		player.render(g);
+		bomb.render(g);
 	}
 	
 	@Override
@@ -109,5 +113,9 @@ public class Game implements Runnable {
 	
 	public Player getPlayer() {
 		return player;
+	}
+	
+	public Bomb getBomb() {
+		return bomb;
 	}
 }
