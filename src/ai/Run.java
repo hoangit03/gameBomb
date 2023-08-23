@@ -14,7 +14,7 @@ public class Run {
 	private boolean check = false;
 	private Point start, end;
 	private Point x = new Point(1, 1);
-	Point g = new Point(5, 16);
+	Point g = new Point(16, 5);
 	private int[][] a;
 
 	public ListPoint getB() {
@@ -64,7 +64,7 @@ public class Run {
 		a = levelOne.getLevelData();
 		b.addPointFirst(x);
 		this.player = player;
-		System.out.println(c);
+		
 	}
 
 	public void draw() {
@@ -100,16 +100,17 @@ public class Run {
 				start.setX(start.getX() - SPEEP);
 			}
 			if (start.getY() < end.getY()) {
-				player.setUp(true);
+				player.setDown(true);
 				start.setY(start.getY() + SPEEP);
 			}
 			if (start.getY() > end.getY()) {
-				player.setDown(true);
+				player.setUp(true);
 				start.setY(start.getY() - SPEEP);
 			}
 			player.getHitbox().setRect(start.getX() * Game.TILES_SIZE, start.getY() * Game.TILES_SIZE, 36 * 0.9,
 					50 * 0.9);
 			player.update();
+			player.resetDirBooleans();
 			try {
 				Thread.sleep(5);
 			} catch (InterruptedException e) {
@@ -134,7 +135,7 @@ public class Run {
 			Point x = b.getFirst();
 			c.addPointLast(x);
 			b.deleteFirst();
-			if (x.getX() + 1 > 14 || x.getX() - 1 < 0 || x.getY() + 1 > 25 || x.getY() - 1 < 0)
+			if (x.getX() + 1 > 25 || x.getX() - 1 < 0 || x.getY() + 1 > 14 || x.getY() - 1 < 0)
 				continue;
 			if (x.getX() == g.getX() && x.getY() == g.getY())
 				break;

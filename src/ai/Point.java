@@ -28,7 +28,7 @@ public class Point {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return String.format("(%d,%d)->", x, y);
+		return String.format("(%f,%f)->", x, y);
 	}
 
 }
