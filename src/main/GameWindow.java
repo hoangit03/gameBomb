@@ -32,6 +32,7 @@ public class GameWindow extends JFrame {
 				
 			}
 		});
+		
 		gamePanel.getRun().addList(gamePanel.getRun().getC(), gamePanel.getRun().getB(), gamePanel.getRun().getA(), new Point(gamePanel.getGame().getBomb().getX(),gamePanel.getGame().getBomb().getY() ));
 	}
 }

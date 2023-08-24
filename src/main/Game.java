@@ -36,7 +36,7 @@ public class Game implements Runnable {
 		levelManager = new LevelManager(this);
 		player = new Player(TILES_SIZE, TILES_SIZE,(int) (64*0.9),(int) (66*0.9));
 		player.loadLvlData(levelManager.getCurrentLevel().getLevelData());
-		bomb = new Bomb(13, 7);
+		bomb = new Bomb(15, 12);
 	}
 
 	private void startGameLoop() {

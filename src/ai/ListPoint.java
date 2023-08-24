@@ -3,6 +3,7 @@ package ai;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ListPoint {
 	private List<Point> listPoints;
 	
@@ -22,8 +23,24 @@ public class ListPoint {
 		listPoints.remove(0);
 	}
 	
+	public Point getPointK(int i) {
+		return listPoints.get(i);
+	}
+	
 	public int getSize() {
 		return listPoints.size();
+	}
+	
+	public void xoaSoLuong(int i,int j) {
+		int x = j;
+		for(int a = i; a < listPoints.size();x--) {
+			if(a < x+1) {
+				listPoints.remove(a);
+				if(x == a)
+					break;
+			}
+			
+		}
 	}
 	
 	public boolean checkPoint(Point x) {

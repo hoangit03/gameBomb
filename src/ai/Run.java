@@ -64,7 +64,6 @@ public class Run {
 		a = levelOne.getLevelData();
 		b.addPointFirst(x);
 		this.player = player;
-		
 	}
 
 	public void draw() {
@@ -82,7 +81,6 @@ public class Run {
 	}
 
 	public void updatePos() {
-
 		while (!check) {
 			check = Math.round(start.getX() * 10.0) / 10.0 == Math.round(end.getX() * 10.0) / 10.0
 					&& Math.round(start.getY() * 10.0) / 10.0 == Math.round(end.getY() * 10.0) / 10.0;
@@ -107,7 +105,7 @@ public class Run {
 			player.update();
 			player.resetDirBooleans();
 			try {
-				Thread.sleep(1);
+				Thread.sleep(5);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -127,6 +125,7 @@ public class Run {
 
 	public void addList(ListPoint c, ListPoint b, int[][] a, Point g) {
 		System.out.println(g);
+		double start = System.currentTimeMillis();
 		while (b.getSize() > 0) {
 			Point x = b.getFirst();
 			c.addPointLast(x);
@@ -143,6 +142,27 @@ public class Run {
 				b.addPointFirst(new Point((int) x.getX(), (int) x.getY() - 1));
 			if (check(c, b, a, (int) x.getX() - 1, (int) x.getY()))
 				b.addPointFirst(new Point((int) x.getX() - 1, (int) x.getY()));
+		}
+		double end = System.currentTimeMillis();
+		System.out.println("Thoi gian tim kiem: " +(double) (end-start));
+		RutGon(c);
+		
+	}
+	
+	public void RutGon(ListPoint a) {
+		
+		for (int i = 0; i < a.getSize(); i++) {
+			for (int j = i+1; j < a.getSize() - 1; j++) {
+				if ((Math.abs(a.getPointK(j).getX() - a.getPointK(j + 1).getX()) != 1
+						|| Math.abs(a.getPointK(j).getY() - a.getPointK(j + 1).getY()) != 1)
+						&& (Math.abs(a.getPointK(i).getX() - a.getPointK(j + 1).getX()) == 1 
+						&& a.getPointK(i).getY() == a.getPointK(j + 1).getY())
+						|| (Math.abs(a.getPointK(i).getY() - a.getPointK(j + 1).getY()) == 1 
+						&& a.getPointK(i).getX() == a.getPointK(j + 1).getX()))
+					a.xoaSoLuong(i+1, j);
+//					System.out.println(a.getPointK(i) + "," + a.getPointK(j+1));
+					
+			}
 		}
 	}
 
